@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>About me</h1>
+<p> I am a unicorn </p>
+<p> {{ my_text|capfirst}} with number {{ my_number }} </p>
+
+<h2>Listing and iterating inside the html template</h2>
+<ul>
+{% for my_sub_item in my_list %}
+    {% if my_sub_item == 22 %}
+        <li>{{forloop.counter}} was 22 let's add 3 -> {{ my_sub_item|add:3}}</li>
+    {% else %}
+        <li>{{ my_sub_item }}</li>
+    {% endif %}
+{% endfor %}
+</ul>
+
+<!-- The my_sub_item|add:3 is called a built in template tag filter we can apply many different functions like that.
+The | is a pipe like usual so we can pipe with several steps.-->
+
+
+{% endblock content %}

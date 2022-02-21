@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+
+{% block content%}
+{# Forms create fields which the user can put info in and when submitting the info is #}
+{# directed to another page (with "." it's the same page but we could chang to google.se for example) with the info as parameters (at least with GET) #}
+<form action="." method='POST'> {% csrf_token %} {# csrf_token is needed for POSTs due to security reasons#}
+    {# <input type='text' name='title' placeholder="Your Title"/> with this we can retrieve the title inside views with request.post.POST #}    
+{{ form.as_p }} {# This line is a built in method which converts a model to a paragraph text (<p>)#}
+    {#There are other similiar .as_*#}
+<input type='submit' value='Save'/>    
+</form>
+{# GET-> querieing info from a web page with a url. #}
+{# POST -> saves info to the database/backend also a url.#}
+{% endblock %}
